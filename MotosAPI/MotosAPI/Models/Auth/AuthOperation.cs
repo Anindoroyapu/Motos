@@ -16,6 +16,8 @@ namespace MotosAPI.Models.Auth
             var tokenStr = JwtOperation.MkJwtToken(_config, jti, userInfo.UserName, userInfo.PrimaryEmail, validityDateTime, "");
 
             userInfo.Token = tokenStr;
+            userInfo.TokenTime = TimeOperation.GetUnixTime();
+            await _context.SaveChangesAsync();
             
 
             return tokenStr;

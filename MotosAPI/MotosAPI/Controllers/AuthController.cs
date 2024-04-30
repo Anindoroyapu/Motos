@@ -7,7 +7,7 @@ using MotosAPI.Utils;
 
 namespace MotosAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : Controller
     {
@@ -52,7 +52,7 @@ namespace MotosAPI.Controllers
             }
 
             //--Return
-            return Ok(ApiResponseHandler.Success("Login", new
+            return Ok(ApiResponseHandler.Success("Login Successfully", new
             {
                 Token = tokenStr,
             }));

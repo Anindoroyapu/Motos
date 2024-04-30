@@ -401,3 +401,4 @@ MiracleWebAPI/.deploy/build/
 MiracleWebAPI/.deploy/build.tar.gz
 
 *.cache
+/MotosAPI/MotosAPI/obj/Debug
