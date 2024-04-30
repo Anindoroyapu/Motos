@@ -20,18 +20,17 @@ namespace MotosAPI.Models.Auth
         {
             var st = Validation.ValidateAll(new List<StatusObj>
             {
-                Validation.IsValidGeneralString(authRegistration.Organization, "Organization", 1),
                 Validation.IsValidGeneralString(authRegistration.FirstName, "First Name", 1),
                 Validation.IsValidGeneralString(authRegistration.LastName, "Last Name", 1),
                 Validation.IsValidEmailFormat(authRegistration.Email, "Email Address"),
+                Validation.IsValidPhoneNumberFormat(authRegistration.Phone, "Phone Number"),
                 Validation.IsValidPasswordFormat(authRegistration.Password, "Password"),
                 Validation.IsValidPasswordFormat(authRegistration.ConfirmPassword, "Confirm Password"),
                 Validation.IsTrue(authRegistration.Password == authRegistration.ConfirmPassword, "Passwords doesn't match"),
             });
 
-            var referanceName = Validation.GetReferenceName(refNames, st.ErrorIndex);
 
-            return new ApiResponse { Status = st.Status, Title = st.Title, ReferenceName = referanceName };
+            return new ApiResponse { Status = st.Status, Title = st.Title };
         }
     }
 }

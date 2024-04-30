@@ -67,15 +67,23 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
-            "Microsoft.Extensions.Http": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[9.0.0-preview.3.24172.9, )"
+              "version": "[7.0.0, )"
             },
-            "Npgsql": {
+            "NuGet.Common": {
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[6.9.1, )"
+            },
+            "NuGet.Protocol": {
+              "target": "Package",
+              "version": "[6.9.1, )"
             },
             "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
               "version": "[6.5.0, )"
             }

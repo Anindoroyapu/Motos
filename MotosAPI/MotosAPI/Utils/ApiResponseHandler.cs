@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿// Ignore Spelling: Utils
+
 using MotosAPI.Utils;
 
 namespace MotosAPI.Utils
@@ -12,8 +12,7 @@ namespace MotosAPI.Utils
             {
                 Status = 0,
                 Title = message,
-                Data = new { },
-                
+                Data = new { }
             };
         }
 
@@ -24,7 +23,6 @@ namespace MotosAPI.Utils
                 Status = 0,
                 Title = message,
                 Data = data,
-                
             };
         }
 
@@ -34,8 +32,7 @@ namespace MotosAPI.Utils
             {
                 Status = 0,
                 Title = message,
-                Data = data,
-                
+                Data = data
             };
         }
 
@@ -44,9 +41,7 @@ namespace MotosAPI.Utils
             return new ApiResponse
             {
                 Status = 1,
-                Title = message,
-                Data = data,
-               
+                Title = message
             };
         }
 
@@ -54,7 +49,9 @@ namespace MotosAPI.Utils
         {
             return new ApiResponse
             {
-                Status = 1,Title = message,Data = new { },
+                Status = 1,
+                Title = message,
+                Data = new { }
             };
         }
 
@@ -64,8 +61,7 @@ namespace MotosAPI.Utils
             {
                 Status = 1,
                 Title = apiResponse.Title,
-                Data = new { },
-               
+                Data = new { }
             };
         }
 
@@ -75,8 +71,7 @@ namespace MotosAPI.Utils
             {
                 Status = 2,
                 Title = message,
-                Data = new { },
-               
+                Data = new { }
             };
         }
 
@@ -86,8 +81,7 @@ namespace MotosAPI.Utils
             {
                 Status = 401,
                 Title = ex.Message,
-                Data = new { },
-                
+                Data = new { }
             };
         }
     }

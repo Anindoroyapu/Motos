@@ -95,7 +95,6 @@ namespace MotosAPI.Controllers
                 DateOfBirth = 0,
                 Gender = "",
                 Password = BCrypt.Net.BCrypt.HashPassword(authRegistration.Password),
-                Status = "active"
             };
 
             _context.UserProfile.Add(user);
