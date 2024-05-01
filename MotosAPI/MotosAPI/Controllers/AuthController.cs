@@ -61,24 +61,24 @@ namespace MotosAPI.Controllers
 
         //api/auth/registration
         [HttpPost("create-account")]
-        public async Task<ActionResult<IEnumerable<Auth>>> AuthCreateAccount(AuthRegistration authRegistration)
+        public async Task<ActionResult<IEnumerable<Auth>>> AuthCreateAccount(UserProfile userProfile)
         {
             //--Validate
-            var validate = AuthValidate.ValidateRegistrationPost(authRegistration);
+            var validate = AuthValidate.ValidateRegistrationPost(userProfile);
             if (validate.Status != 0)
             {
                 return Ok(ApiResponseHandler.Error(validate.Title));
             }
 
             //--Check If PrimaryEmail Already Exist
-            var emailExist = await _context.UserProfile.FirstOrDefaultAsync(u => u.UserName == authRegistration.Email || u.PrimaryEmail == authRegistration.Email);
+            var emailExist = await _context.UserProfile.FirstOrDefaultAsync(u => u.UserName == userProfile.PrimaryEmail || u.PrimaryEmail == userProfile.PrimaryEmail);
             if (emailExist != null)
             {
                 return Ok(ApiResponseHandler.Error("Email Already Exist", "Email"));
             }
 
             //--Check If Primary Phone Already exist
-            var phoneExist = await _context.UserProfile.FirstOrDefaultAsync(x => x.UserName == authRegistration.Phone || x.PrimaryPhone == authRegistration.Phone);
+            var phoneExist = await _context.UserProfile.FirstOrDefaultAsync(x => x.UserName == userProfile.PrimaryPhone || x.PrimaryPhone == userProfile.PrimaryPhone);
             if (phoneExist != null)
             {
                 return Ok(ApiResponseHandler.Error("Phone Number Already Exist"));
@@ -87,14 +87,15 @@ namespace MotosAPI.Controllers
             //--Creating User
             var user = new UserProfile
             {
-                FirstName = authRegistration.FirstName,
-                LastName = authRegistration.LastName,
-                PrimaryEmail = authRegistration.Email,
-                PrimaryPhone = authRegistration.Phone,
+                FirstName = userProfile.FirstName,
+                LastName = userProfile.LastName,
+                PrimaryEmail = userProfile.PrimaryEmail,
+                PrimaryPhone = userProfile.PrimaryPhone,
                 UserName = "",
                 DateOfBirth = 0,
                 Gender = "",
-                Password = BCrypt.Net.BCrypt.HashPassword(authRegistration.Password),
+                Password = BCrypt.Net.BCrypt.HashPassword(userProfile.Password),
+                
             };
 
             _context.UserProfile.Add(user);

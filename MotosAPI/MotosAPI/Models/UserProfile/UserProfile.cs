@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace MotosAPI.Models.UserProfile
 {
@@ -9,7 +7,6 @@ namespace MotosAPI.Models.UserProfile
     [Table("UserProfile", Schema = "public")]
     public class UserProfile
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -35,16 +32,14 @@ namespace MotosAPI.Models.UserProfile
         [MaxLength(20)]
         public string Gender { get; set; } = "";
 
-
         public long DateOfBirth { get; set; }
 
         [MaxLength(1000)]
-        public string Token { get; set; } = "";
+       public string Token { get; set; } = "";
 
-        public long TokenTime { get; set; }
+       public long TokenTime { get; set; }
 
-
-
+        
     }
 
 }

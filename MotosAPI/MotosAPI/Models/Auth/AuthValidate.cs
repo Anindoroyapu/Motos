@@ -1,4 +1,5 @@
 ﻿using MotosAPI.Utils;
+using MotosAPI.Models;
 
 namespace MotosAPI.Models.Auth
 {
@@ -16,17 +17,15 @@ namespace MotosAPI.Models.Auth
             return new ApiResponse { Status = st.Status, Title = st.Title };
         }
 
-        public static ApiResponse ValidateRegistrationPost(AuthRegistration authRegistration)
+        public static ApiResponse ValidateRegistrationPost(UserProfile.UserProfile userProfile)
         {
             var st = Validation.ValidateAll(new List<StatusObj>
             {
-                Validation.IsValidGeneralString(authRegistration.FirstName, "First Name", 1),
-                Validation.IsValidGeneralString(authRegistration.LastName, "Last Name", 1),
-                Validation.IsValidEmailFormat(authRegistration.Email, "Email Address"),
-                Validation.IsValidPhoneNumberFormat(authRegistration.Phone, "Phone Number"),
-                Validation.IsValidPasswordFormat(authRegistration.Password, "Password"),
-                Validation.IsValidPasswordFormat(authRegistration.ConfirmPassword, "Confirm Password"),
-                Validation.IsTrue(authRegistration.Password == authRegistration.ConfirmPassword, "Passwords doesn't match"),
+                Validation.IsValidGeneralString(userProfile.FirstName, "First Name", 1),
+                Validation.IsValidGeneralString(userProfile.LastName, "Last Name", 1),
+                Validation.IsValidEmailFormat(userProfile.PrimaryEmail, "Email Address"),
+                Validation.IsValidPhoneNumberFormat(userProfile.PrimaryPhone, "Phone Number"),
+                Validation.IsValidPasswordFormat(userProfile.Password, "Password"),
             });
 
 
