@@ -38,8 +38,7 @@ namespace MotosAPI.Models.UserProfile
        public string Token { get; set; } = "";
 
        public long TokenTime { get; set; }
-
-        
+        public int TimeDeleted { get; internal set; }
     }
 
 }
