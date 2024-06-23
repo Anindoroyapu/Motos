@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MotosAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d6779f293fbd7823c0ad675a258be3003182cd7")]
 [assembly: System.Reflection.AssemblyProductAttribute("MotosAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MotosAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
