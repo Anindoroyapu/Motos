@@ -11,7 +11,7 @@ namespace MotosAPI.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public PaymentsApiController(ApplicationDbContext context)
+        public PaymentsApiControllers(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -50,7 +50,6 @@ namespace MotosAPI.Controllers
                 x.TimeInitiate,
                 x.TimeSuccess,
                 x.TimeFailed,
-                x.Note,
                 x.Status,
             })));
         }

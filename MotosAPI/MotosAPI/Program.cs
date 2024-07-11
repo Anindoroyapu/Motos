@@ -24,7 +24,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => {
 
 builder.Services.Configure<KestrelServerOptions>(options =>
 {
-    options.Limits.MaxRequestBodySize = 100 * 1024 * 1024; // 100 MB
+    options.Limits.MaxRequestBodySize = 100 * 1024 * 1024; 
 });
 
 var app = builder.Build();
@@ -43,5 +43,5 @@ app.UseCors("AllowSpecificOrigin"); // Apply the CORS policy here
 
 
 app.MapControllers();
-// app.MapControllerRoute( name: "notfound", pattern: "notfound", defaults: new { controller = "InitController", action = "GetNotFound" });
+// app.MapControllerRoute( name: "notfound", pattern: "notfound", defaults: new );
 app.Run();
