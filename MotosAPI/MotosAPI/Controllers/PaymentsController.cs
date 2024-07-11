@@ -10,6 +10,8 @@ namespace MotosAPI.Controllers
     public class PaymentsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private object agencyInfo;
+        private IEnumerable<object> query;
 
         public PaymentsApiControllers(ApplicationDbContext context)
         {
