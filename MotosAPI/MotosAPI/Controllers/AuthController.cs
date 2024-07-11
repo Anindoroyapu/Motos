@@ -45,8 +45,8 @@ namespace MotosAPI.Controllers
                 return Ok(ApiResponseHandler.Error("Password Doesn't Match"));
             }
 
-            var tokenStr = await AuthOperation.SavingToken(_context, Request, _config, userInfo);
-            if (tokenStr == "")
+            var tokenStm = await AuthOperation.SavingToken(_context, Request, _config, userInfo);
+            if (tokenStm == "")
             {
                 return Ok(ApiResponseHandler.Error("Token Not Generated"));
             }
@@ -54,7 +54,7 @@ namespace MotosAPI.Controllers
             //--Return
             return Ok(ApiResponseHandler.Success("Login Successfully", new
             {
-                Token = tokenStr,
+                Token = tokenStm,
             }));
         }
 
