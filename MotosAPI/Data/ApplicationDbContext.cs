@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MotosAPI.Models.UserProfile;
+using MotosAPI.Models.ImageRecord;
 
 namespace MotosAPI.Data
 {
@@ -20,5 +21,7 @@ namespace MotosAPI.Data
         }
 
         public DbSet<UserProfile> UserProfile { get; set; } = default!;
+
+        public DbSet<ImageRecord> Images { get; set; }
     }
 }

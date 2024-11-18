@@ -57,6 +57,28 @@ namespace MotosAPI.Controllers
                 Token = tokenStm,
             }));
         }
+        // Controller
+       
+
+            [HttpPost]
+            [Route("upload")]
+            public async Task<IActionResult> Upload(IFormFile file)
+            {
+                if (file == null || file.Length == 0)
+                    return BadRequest("No file uploaded");
+
+                var filePath = Path.Combine(_context.UserAuthLog, "uploads", file.FileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                // Save file path or other details to database if needed
+
+                return Ok(new { FilePath = filePath });
+            }
+        
 
 
         //api/auth/registration
